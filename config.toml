@@ -2,7 +2,7 @@
 
 [embedding]
 api_url = "https://chutes-intfloat-multilingual-e5-large.chutes.ai/v1/embeddings"
-api_token = "${CHUTES_API_TOKEN}"
+api_token = "cpk_37140d33ae1f4a77ba9980e4fc78a624.25e244203d585ca49b14a4bee55bfda2.MFjdI47zPJZVD16144TNJWv8xlJxBRil"
 batch_size = 32
 timeout_secs = 30
 max_retries = 3
@@ -46,6 +46,6 @@ level = "info"
 format = "json"
 
 [server]
-port = 8080
+port = 8081
 host = "0.0.0.0"
 max_body_size_mb = 10
