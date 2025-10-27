@@ -1,0 +1,13 @@
+service:
+  host: 0.0.0.0
+  http_port: 6333
+  grpc_port: 6334
+
+storage:
+  # Storage performance settings
+  performance:
+    max_search_threads: 4
+    update_queue_size: 1024
+    
+# Logging configuration
+log_level: INFO
