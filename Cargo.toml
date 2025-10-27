@@ -1,0 +1,71 @@
+[package]
+name = "context-manager"
+version = "0.1.0"
+edition = "2021"
+authors = ["NinjaTech AI"]
+description = "AI Agent Context Management with Embeddings, Vector DB, and HiRAG"
+license = "MIT"
+
+[dependencies]
+# Async Runtime
+tokio = { version = "1.35", features = ["full"] }
+async-trait = "0.1"
+
+# HTTP Client
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+axum = "0.7"
+
+
+# Vector Database
+qdrant-client = "1.7"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rmp-serde = "1.1"
+
+# Error Handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging & Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["json", "env-filter"] }
+
+# Configuration
+config = "0.13"
+dotenvy = "0.15"
+
+# Utilities
+uuid = { version = "1.6", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+bytes = "1.5"
+futures = "0.3"
+
+# Caching
+moka = { version = "0.12", features = ["future"] }
+
+# Collections
+indexmap = "2.0"
+
+# Cryptography
+hmac = "0.12"
+sha2 = "0.10"
+hex = "0.4"
+secrecy = { version = "0.8", features = ["serde", "alloc"] }
+
+# Random
+rand = "0.8"
+dashmap = "6.1.0"
+tower-http = { version = "0.6.6", features = ["trace", "limit"] }
+tower = "0.5.2"
+
+[dev-dependencies]
+mockito = "1.2"
+criterion = "0.5"
+tokio-test = "0.4"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

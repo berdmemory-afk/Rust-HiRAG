@@ -1,0 +1,51 @@
+# Configuration for Context Manager
+
+[embedding]
+api_url = "https://chutes-intfloat-multilingual-e5-large.chutes.ai/v1/embeddings"
+api_token = "${CHUTES_API_TOKEN}"
+batch_size = 32
+timeout_secs = 30
+max_retries = 3
+cache_enabled = true
+cache_ttl_secs = 3600
+cache_size = 1000
+tls_enabled = true
+tls_verify = true
+
+[vector_db]
+url = "http://localhost:6334"
+# api_key = "optional_api_key"
+collection_prefix = "contexts"
+vector_size = 1024
+distance = "Cosine"
+timeout_secs = 10
+tls_enabled = false
+tls_verify = true
+
+[hirag]
+l1_size = 10
+l2_size = 100
+l3_enabled = true
+max_context_tokens = 4000
+relevance_threshold = 0.7
+token_estimator = { type = "CharacterBased", chars_per_token = 4.0 }
+retrieval_strategy = { l1_allocation = 0.3, l2_allocation = 0.4, l3_allocation = 0.3, min_contexts_per_level = 1 }
+ranking_weights = { similarity_weight = 0.5, recency_weight = 0.2, level_weight = 0.2, frequency_weight = 0.1 }
+gc_enabled = false
+gc_interval_secs = 300
+l2_ttl_secs = 3600
+l3_ttl_secs = 86400
+
+[protocol]
+version = "1.0.0"
+codec = "json"
+max_message_size_mb = 10
+
+[logging]
+level = "info"
+format = "json"
+
+[server]
+port = 8080
+host = "0.0.0.0"
+max_body_size_mb = 10
